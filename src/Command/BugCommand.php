@@ -23,8 +23,8 @@ class BugCommand extends Command
 			public string $camelCase = 'value';
 		};
 
-		var_dump($this->serializer->normalize($class, 'json'));
-		var_dump($this->serializer->normalize(['camelCase' => 'value'], 'json'));
+		assert(['camel_case' => 'value'] === $this->serializer->normalize($class, 'json'));
+		assert(['camelCase' => 'value'] ===$this->serializer->normalize(['camelCase' => 'value'], 'json'));
 
 		return self::SUCCESS;
 	}
