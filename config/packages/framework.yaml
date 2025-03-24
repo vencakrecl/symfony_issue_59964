@@ -8,6 +8,13 @@ framework:
     #esi: true
     #fragments: true
 
+    serializer:
+        default_context:
+            datetime_format: 'U'
+            datetime_timezone: 'UTC'
+            datetime_cast: 'int'
+        name_converter: serializer.name_converter.camel_case_to_snake_case
+
 when@test:
     framework:
         test: true
